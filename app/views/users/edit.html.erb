@@ -1,7 +1,14 @@
-<%= form_for :@user,url:user_path(@user), method: :get, do |user| %>
-<%= f.label: name %>
-<%=f.text_field: name %>
-<%=f.label: bio %>
-<%=f.text_area: bop %>
-<%= f.submit %>
-<% end %>
+<div class="row" id="margin-top">
+	<div class="col-md-5 col-md-offset-2 card">
+			<%= form_for(@user) do |user| %>
+			<div class="form-group">
+				<%= user.label :name %>
+				<%=user.text_field :name, class:"form-control" %>
+			<div class="form-group">
+				<%=user.label :bio %>
+				<%=user.text_area :bio, class:"form-control" %>
+			</div>
+			<%= user.submit %>
+			<% end %>
+	</div>
+</div>

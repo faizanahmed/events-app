@@ -1,9 +1,28 @@
-	<div class="custom" >
-		<p>
-			<%= @user.email %>
-		
-	
-	<%= link_to "Edit Profile", edit_user_path(current_user) %>
 
-	</p>
+
+<div class="custom">
+	<div class="row">
+		<div class="col-md-5 col-md-offset-1">
+			<div class="custom list-group" >
+			<a href="#" class="list-group-item active">
+			<%= gravatar_for @user %>
+			</a>
+			</div>
+		</div>
+
+		</div>
+	<div class="row">
+		<div class="col-md-5 col-md-offset-1">
+			<ul class="list-group">
+  			<li class="list-group-item">NAME: <%=@user.name %></li>
+  			<li class="list-group-item">EMAIL: <%= @user.email %></li>
+  			<li class="list-group-item">ABOUT <%=@user.name %>: <%=@user.bio%></li>
+
+			</ul>
+		</div>
+		
+		<%= link_to "Edit Profile", edit_user_path(current_user) ,class: "btn btn-primary" %>
+		<%= link_to "Create An Event",new_user_event_path(current_user),class: "btn btn-primary" %>
+
 	</div>
+</div>
