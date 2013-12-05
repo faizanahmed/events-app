@@ -20,5 +20,7 @@
   			        </p><%= link_to "Sign Up",new_user_registration_path,class: "btn btn-large btn-primary" %>
 			         visit us at Facebook/eventsapp  
   	</div>  
-
-</div>
+</div>      
+      <% @users.each do |user| %>
+      <p> <%= user.email %>
+      <% end %>

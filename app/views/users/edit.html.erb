@@ -1,0 +1,7 @@
+<%= form_for :@user,url:user_path(@user), method: :get, do |user| %>
+<%= f.label: name %>
+<%=f.text_field: name %>
+<%=f.label: bio %>
+<%=f.text_area: bop %>
+<%= f.submit %>
+<% end %>
