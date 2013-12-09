@@ -1,4 +1,9 @@
+
 class EventsController < ApplicationController
+def index 
+	@user=User.find(params[:user_id])
+	@events=@user.events.all
+end
 def new
 	@user=User.find(params[:user_id])
 	@event=@user.events.new
