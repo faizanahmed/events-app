@@ -36,11 +36,11 @@ def destroy
 	@user=User.find(params[:user_id])
 	@event=@user.events.find(params[:id])
 	if @event.destroy
-		redirect_to user_event_path
+		redirect_to user_events_path
 	end
 end
 def event_params
-	params.require(:event).permit(:name,:description,:avatar)
+	params.require(:event).permit(:name,:description,:avatar,:loc)
 end
 
 end

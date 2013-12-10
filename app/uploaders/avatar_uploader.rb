@@ -6,8 +6,11 @@ class AvatarUploader < CarrierWave::Uploader::Base
 
   process :resize_to_fit => [800, 800]
 
+  version :index_thumb do
+    process :resize_to_fit=>[400,300]
+  end
   version :thumb do
-    process :resize_to_fill => [200,200]
+    process :resize_to_fill => [600,450]
   end
 
   # Include RMagick or MiniMagick support:

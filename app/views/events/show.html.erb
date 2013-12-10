@@ -1,17 +1,24 @@
 <div class="row" id="margin-top">
-		<div class="col-md-5 col-md-offset-1">
+		<div class="col-md-6 col-md-offset-1">
 			<ul class="list-group">
   			<li class="list-group-item">EVENT NAME: <%=@event.name %></li>
   			<li class="list-group-item">DESCIPTION: <%= @event.description %></li>
+  			<li class="list-group-item">LOCATION: <%= @event.loc %></li>
   			<li class="list-group-item">ABOUT <%=@user.name %>: <%=@user.bio%></li>
-
-  			  <%= image_tag @event.avatar.url  %>
+  			<li class="list-group-item"><%= image_tag @event.avatar.thumb.url  %></li>
+  			  
  			  
 			</ul>
+			<input type="hidden" value="<%= @event.loc%>" id="address" >
 			<%= link_to "Delete This Event",user_event_path(@user,@event), method: :delete, class: "btn btn-primary" %>
 		</div>
 		
 	
-	</div>
-</div>
+	
 
+<div class="col-md-4 ">
+<h1> SEE THE MAP </h1>
+<h3>Place- <%=@event.loc %> </h3>
+<div id='map-canvas' style="width:500px;height:450px">
+</div>
+</div>
