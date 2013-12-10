@@ -1,0 +1,10 @@
+<% @comments.each do |comment| %>
+<%u=User.find(comment.user_id)%>
+Commenter: <%= u.name %>
+<br>
+Content:
+<%= comment.content %>
+
+<%= link_to "DELETE" ,event_comment_path(@event,comment), method: :delete ,class: "btn btn-small"%>
+<br>
+<% end %>

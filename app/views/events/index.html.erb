@@ -1,6 +1,4 @@
-
-
-<div class="row col-md-offset-1" id="margin-top">
+<div class="row col-md-offset-1 " id="margin-top">
 
 		<% @events.each do |event|%>
 		
@@ -9,14 +7,15 @@
   			<li class="list-group-item">EVENT NAME: <%=event.name %></li>
   			<li class="list-group-item">DESCIPTION: <%= event.description %></li>
   			<li class="list-group-item">ABOUT <%=@user.name %>: <%=@user.bio%></li>
-			<li class="list-group-item"><%= image_tag event.avatar.index_thumb.url %></li>
+			<li class="list-group-item img-thumbnail"><%= image_tag event.avatar.index_thumb.url %></li>
  			  
 			</ul>
 			<%= link_to "EDIT", edit_user_event_path(@user,event),class: "btn btn-primary" %>
-			<%= link_to "VIEW", user_event_path(@user,event),class: "btn btn-primary" %>
-		</div>
+			<%= link_to "VIEW", user_event_path(@user,event),class: "btn btn-success" %>
 		
-	<% end %>
+		</div>
+		<% end %>
+	
 	</div>
 
 

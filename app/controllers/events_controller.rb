@@ -21,6 +21,7 @@ def edit
 	@event=@user.events.find(params[:id])
 end
 def update
+
 	@user=User.find(params[:user_id])
 	@event=@user.events.find(params[:id])
 	@event.update(event_params)
@@ -29,8 +30,12 @@ end
 	
 
 def show
+	# @event=Event.find(params[:id])
 	@user=User.find(params[:user_id])
 	@event=@user.events.find(params[:id])
+	@comments=@event.comments(params[:id])
+	@comment=Comment.new
+
 end
 def destroy
 	@user=User.find(params[:user_id])
