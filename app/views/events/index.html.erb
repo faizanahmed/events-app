@@ -10,6 +10,8 @@
 			<%= image_tag event.avatar.url %>
  			  
 			</ul>
+			<%= link_to "EDIT", edit_user_event_path(@user,event),class: "btn btn-primary" %>
+			<%= link_to "VIEW", user_event_path(@user,event),class: "btn btn-primary" %>
 		</div>
 		
 	<% end %>

@@ -8,6 +8,7 @@
   			  <%= image_tag @event.avatar.url  %>
  			  
 			</ul>
+			<%= link_to "Delete This Event",user_event_path(@user,@event), method: :delete, class: "btn btn-primary" %>
 		</div>
 		
 	

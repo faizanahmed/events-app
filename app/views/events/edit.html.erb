@@ -1,0 +1,21 @@
+	<div id="margin-top">
+	<%= form_for([@user, @event]) do |event| %>
+	<div class="form-group">
+			<%= event.label :name %>
+
+			<%= event.text_field :name ,class: "form-control"%>
+			</div>
+			<div class="form-group">
+			<%= event.label :description %>
+			<%=event.text_field :description, class: "form-control" %>
+			</div>
+			<div class="form-group">
+			<%= event.label :location %>
+			<%=event.text_field :loc, class: "form-control", id: "searchloc" %>
+			</div>
+			<%= event.file_field :avatar %>
+			<%= event.hidden_field :avatar_cache %>
+			<%= event.submit %>
+			<% end %>
+		</div>
+		</div>
