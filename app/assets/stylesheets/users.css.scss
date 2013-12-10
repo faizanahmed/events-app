@@ -1,6 +1,9 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.row
+{margin-right: 0px !important;
+}
 .back_img
 {
 	background-image: asset_url("back.jpg");
@@ -26,4 +29,8 @@ html,body,#map-canvas
 
 margin-top:30px;
 
+}
+.left-event
+{
+	margin-left:20px;
 }

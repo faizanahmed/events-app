@@ -1,6 +1,7 @@
 
 <%= form_for([@event,@comment]) do |f|%>
-<%= f.label:content  %>
-<%= f.text_area:content %>
-<%= f.submit:submit %>
+<h3>Post Your comment here . .<span class="glyphicon glyphicon-hand-down"></span></h3>
+<%= f.text_area:content,size:"55x5",placeholder: "Have a say !!"%>
+
+<%= f.submit:comment,class: "btn btn-primary" %>
 <% end %>

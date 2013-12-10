@@ -3,15 +3,16 @@ class EventsController < ApplicationController
 def index 
 	
 	@events=Event.all
+	
 end
 def new
-	@user=User.find(params[:user_id])
-	@event=@user.events.new
+	@user=User.find(current_user.id)
+	@event=Event.new
 end
 def create
-	@user=User.find(params[:user_id])
-	if @event=@user.events.create(event_params)
-		redirect_to user_event_path(params[:user_id],@event)
+	@user=User.find(current_user.id)
+	if @event=Event.create(event_params)
+		redirect_to event_path(@event)
 	else 
 		render 'new'
 	end
@@ -31,17 +32,17 @@ end
 
 def show
 	# @event=Event.find(params[:id])
-	@user=User.find(params[:user_id])
-	@event=@user.events.find(params[:id])
+	
+	@event=Event.find(params[:id])
 	@comments=@event.comments(params[:id])
 	@comment=Comment.new
 
 end
 def destroy
-	@user=User.find(params[:user_id])
-	@event=@user.events.find(params[:id])
+	
+	@event=Event.find(params[:id])
 	if @event.destroy
-		redirect_to user_events_path
+		redirect_to events_path
 	end
 end
 def event_params

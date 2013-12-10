@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
 		@comment.user_id=current_user.id
 
 		if @comment.save
-			redirect_to user_event_path(@event.user_id,@event)
+			redirect_to event_path(@event)
 
 		end	
 	end
@@ -22,7 +22,7 @@ class CommentsController < ApplicationController
 		@event=Event.find(params[:event_id])
 		@comment=@event.comments.find(params[:id])
 		if @comment.destroy
-			redirect_to user_event_path(@event.user_id,@event)
+			redirect_to event_path(@event)
 		end
 	end
 	def comment_params

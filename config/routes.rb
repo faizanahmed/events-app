@@ -1,12 +1,13 @@
 EventsApp::Application.routes.draw do
+  get '/users/events' ,to:'events#index'
   devise_for :users
-  resources :users do
+    resources :users  
     resources :events
-  end
   resources :events do 
     resources :comments
   end
   root 'home#index'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
