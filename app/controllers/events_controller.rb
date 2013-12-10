@@ -1,8 +1,8 @@
 
 class EventsController < ApplicationController
 def index 
-	@user=User.find(params[:user_id])
-	@events=@user.events.all
+	
+	@events=Event.all
 end
 def new
 	@user=User.find(params[:user_id])

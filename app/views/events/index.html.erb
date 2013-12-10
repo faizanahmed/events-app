@@ -6,12 +6,12 @@
 			<ul class="list-group">
   			<li class="list-group-item">EVENT NAME: <%=event.name %></li>
   			<li class="list-group-item">DESCIPTION: <%= event.description %></li>
-  			<li class="list-group-item">ABOUT <%=@user.name %>: <%=@user.bio%></li>
+  			
 			<li class="list-group-item img-thumbnail"><%= image_tag event.avatar.index_thumb.url %></li>
  			  
 			</ul>
-			<%= link_to "EDIT", edit_user_event_path(@user,event),class: "btn btn-primary" %>
-			<%= link_to "VIEW", user_event_path(@user,event),class: "btn btn-success" %>
+			<%= link_to "EDIT", edit_user_event_path(event.user_id,event),class: "btn btn-primary" %>
+			<%= link_to "VIEW", user_event_path(event.user_id,event),class: "btn btn-success" %>
 		
 		</div>
 		<% end %>
