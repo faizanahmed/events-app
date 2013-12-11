@@ -1,0 +1,6 @@
+<%= form_tag :controller => 'events', :action => 'search', :method => 'get' do %>
+      <%= text_field_tag :search, params[:search], :id => 'search_field',placeholder:'search by name' %>
+      
+     <%= text_field_tag :search_loc, params[:search_loc], :id => 'searchloc',placeholder:'search by location' %>
+     <%= submit_tag "Search ", :name => nil,class: "btn btn-primary btn-success" %> 
+  <% end %> 

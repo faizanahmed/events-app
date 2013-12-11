@@ -1,5 +1,6 @@
 EventsApp::Application.routes.draw do
   get '/users/events' ,to:'events#index'
+  post '/events/search' ,to:'events#search'
   devise_for :users
     resources :users  
     resources :events

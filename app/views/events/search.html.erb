@@ -1,0 +1,26 @@
+<div class="row back " id="margin-top" >
+<div class="col-md-5 col-md-offset-1">
+
+<h3 style="color:teal"><%= pluralize(@events.count, 'Result') %> found</h3>
+
+<ul>
+    <% @events.each do |event| %>
+  <li>
+  
+
+  <%= link_to event.name, :action => 'show', :id => event.id  %></li>
+  Location:<%= event.loc %></li>
+  <% end %>
+  </ul>
+  </div>
+  <div class="col-md-4">
+  <% if @events.count==0 %>
+  <h3 style="color:crimson">All we have is empty pockets... huhh</h3>
+  <img src="http://www.studiohajo.nl/wp-content/uploadedImages/2009/03/empty.gif" >
+  <% else %>
+  <br>
+  <br>
+  <img src="http://www.really-learn-english.com/image-files/search.gif" >
+  <% end %>
+  </div>
+  </div>

@@ -28,20 +28,35 @@
 			<%= render 'layouts/show_comments' %>
 			<br>
 			<br>		
+			<ul class="list-group">
+  			<li class="list-group-item"><h3>Participants</h3></li>
+			<% @participants.each do |f| %>
+				<li class="list-group-item"><%=f.user.name %>
+				<br>Status:
+				<span style="color:green"><%=f.status %>
+				</span></li>
+				<% end %>
+				<li class="list-group-item">
+				
+				<% if current_user.id != @participants.first.user.id %>
+				<%= link_to "I want to participate" ,class: "btn btn-success" %></li>
+				<% end %>
+
+				</ul>
 		</div>
 		
 	
 	
 
-<div class="col-md-5 ">
-<p class="text-success" style="font-size:40px"><strong> SEE THE MAP </strong>
-</p>
-<p class="text-primary" style="font-size:20px"><strong> 
- <%=@event.loc %></strong> </p>
- <ul class="list-group">
-  <li class="list-group-item">
-<div id='map-canvas' style="width:483px;height:410px">
-</div>
-</li>
-</ul>
-</div>
+	<div class="col-md-5 ">
+		<p class="text-success" style="font-size:40px"><strong> SEE THE MAP </strong>
+		</p>
+		<p class="text-primary" style="font-size:20px"><strong> 
+ 		<%=@event.loc %></strong> </p>
+ 		<ul class="list-group">
+  			<li class="list-group-item">
+				<div id='map-canvas' style="width:483px;height:410px">
+				</div>
+			</li>
+		</ul>
+	</div>
