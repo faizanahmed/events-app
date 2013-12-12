@@ -10,6 +10,7 @@
 		<div class="col-md-6 left-event">
 			<ul class="list-group">
   			<li class="list-group-item">EVENT NAME: <%=@event.name %></li>
+
   			<li class="list-group-item">DESCIPTION: <%= @event.description %></li>
   			<li class="list-group-item">LOCATION: <%= @event.loc %></li>
   			
@@ -30,18 +31,28 @@
 			<br>		
 			<ul class="list-group">
   			<li class="list-group-item"><h3>Participants</h3></li>
-			<% @participants.each do |f| %>
-				<li class="list-group-item"><%=f.user.name %>
+			<% @participants.each do |participant| %>
+				
+				<li class="list-group-item"><%=participant.user.name %>
 				<br>Status:
-				<span style="color:green"><%=f.status %>
-				</span></li>
+				<span style="color:green"><%=participant.status %>
+				</span>
+
+				<% if current_user.id == @participants.first.user.id && current_user.id != participant.user.id && participant.status != "Confirmed" %>
+				<%= link_to "Confirm" ,events_confirm_path(@event,participant),class: "btn btn-success" %>
+				
+				<%= link_to "Cancel" ,events_cancel_path(@event,participant),method: :delete,class: "btn btn-success" %>
 				<% end %>
+				</li>
+				
 				<li class="list-group-item">
 				
-				<% if current_user.id != @participants.first.user.id %>
-				<%= link_to "I want to participate" ,class: "btn btn-success" %></li>
+				<% if current_user.id != @participants.first.user.id && @participants.count < 5  %>
+				<% if participant.user_id != current_user.id %> 
+				<%= link_to "I want to participate" ,events_participate_path(@event),class: "btn btn-success" %></li>
 				<% end %>
-
+				<% end %>
+				<% end %>
 				</ul>
 		</div>
 		

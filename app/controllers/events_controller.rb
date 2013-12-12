@@ -12,7 +12,10 @@ def new
 end
 def create
 	@user=User.find(current_user.id)
-	@event=Event.create(event_params)
+
+	@event=Event.new(event_params)
+	@event.user_id=current_user.id
+	@event.save
 	@participant=Participant.new
 	@participant.event_id=@event.id
 	@participant.user_id=current_user.id
@@ -74,4 +77,30 @@ def search
 	end
 
 end
+def participate
+	@event=Event.find(params[:event_id])
+	@participant=Participant.new
+	@participant.event_id=params[:event_id]
+	@participant.user_id=current_user.id
+	@participant.status="Pending"
+	@participant.save
+	@user=User.find(@event.user_id)
+	EventMailer.request_email(@user,@event).deliver
+	redirect_to event_path(@event)
+end
+	def confirm
+		@event=Event.find(params[:event_id])
+		@participant=Participant.find(params[:id])
+		@user_id=@participant.user_id
+		@participant.update(status:"Confirmed")
+		redirect_to event_path(@event)
+	end
+	def cancel
+		@event=Event.find(params[:event_id])
+		@participant=Participant.find(params[:id])
+		@participant.destroy
+		redirect_to event_path(@event)
+
+	end
+
 end

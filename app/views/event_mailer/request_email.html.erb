@@ -4,11 +4,11 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Hey <%= @user.name %></h1>
+    <h1>Hey </h1>
     <p>
-    Update sucessful<br/>
+     <%= @user.name %> wants to be a part of your <%=@event.name %> event.<br/>
     </p>
-    
+    <p style="color:SteelBlue">To confirm please visit this link <%= link_to "Click here",event_url(@event) %> </p>
     <p style="color:SteelBlue">Thanks for being with us and have a great day!</p>
   </body>
 </html>

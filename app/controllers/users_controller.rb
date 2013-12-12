@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 	end
 	def update 
 		@user=User.find(params[:id])
+		EventMailer.welcome_email(@user).deliver
 		if @user.update(user_params)
 			redirect_to user_path(current_user)	
 		else
@@ -17,4 +18,5 @@ class UsersController < ApplicationController
 	def user_params
 		params.require(:user).permit(:name,:bio)
 	end
+	
 end

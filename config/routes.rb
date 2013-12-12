@@ -1,6 +1,9 @@
 EventsApp::Application.routes.draw do
   get '/users/events' ,to:'events#index'
   post '/events/search' ,to:'events#search'
+  get '/events/:event_id/participate/', to:'events#participate' , as: :events_participate
+  get '/events/:event_id/participate/:id',to:'events#confirm' ,as: :events_confirm
+  delete '/events/:event_id/participate/:id',to:'events#cancel' ,as: :events_cancel
   devise_for :users
     resources :users  
     resources :events
