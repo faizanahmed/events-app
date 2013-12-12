@@ -28,16 +28,17 @@ def create
 end
 
 def edit
-	@user=User.find(params[:user_id])
-	@event=@user.events.find(params[:id])
+		@event=Event.find(params[:id])
+		@user=User.find(@event.user_id)
+
 end
 
 def update
 
-	@user=User.find(params[:user_id])
-	@event=@user.events.find(params[:id])
+	
+	@event=Event.find(params[:id])
 	@event.update(event_params)
-	redirect_to user_event_path(params[:user_id],@event)
+	redirect_to event_path(@event)
 end
 	
 

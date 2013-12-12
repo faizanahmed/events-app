@@ -5,14 +5,14 @@
 </div>
 <div class="row">
 
-
+		<% @user=User.find(@event.user_id) %>
 
 		<div class="col-md-6 left-event">
 			<ul class="list-group">
-  			<li class="list-group-item">EVENT NAME: <%=@event.name %></li>
-
-  			<li class="list-group-item">DESCIPTION: <%= @event.description %></li>
-  			<li class="list-group-item">LOCATION: <%= @event.loc %></li>
+  			<li class="list-group-item">EVENT NAME: <strong><%=@event.name %></strong></li>
+			<li class="list-group-item">DESCIPTION: <strong><%= @event.description %></strong></li>
+  			<li class="list-group-item">EVENT OWNER: <strong><%=@user.name %></strong></li>
+  			<li class="list-group-item">LOCATION:<strong> <%= @event.loc %></strong></li>
   			
   			<li class="list-group-item image-thumbnail"><%=image_tag @event.avatar.thumb.url, size: "600x400"  %></li>
   			  

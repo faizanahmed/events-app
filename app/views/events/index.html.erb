@@ -1,25 +1,31 @@
 <div id="margin-top" class="left-search" >
  <%= render 'layouts/search' %>
 </div>
-<div class="row col-md-offset-1 card" id="margin-top">
+<div class="row " id="margin-top">
+	<div class="col-md-10 col-md-offset-1 card">
+		<div class="row abc" id="margin-top">
 
-		<% @events.each do |event|%>
-		
-		<div class="col-md-5 ">
-			<ul class="list-group">
-  			<li class="list-group-item">EVENT NAME: <%=event.name %></li>
-  			<li class="list-group-item">DESCRIPTION: <%= event.description %></li>
+				<% @events.each do |event|%>
+				
+				<div class="col-md-5 ">
+					<ul class="list-group">
+  					<li class="list-group-item">EVENT NAME: <%=event.name %></li>
+  					<li class="list-group-item">DESCRIPTION: <%= event.description %></li>
   			
-			<li class="list-group-item img-thumbnail"><%= image_tag event.avatar.index_thumb.url %></li>
+					<li class="list-group-item "><%= image_tag event.avatar.index_thumb.url %></li>
  			  
-			</ul>
-			<%= link_to "EDIT", edit_event_path(event),class: "btn btn-primary" %>
-			<%= link_to "VIEW", event_path(event),class: "btn btn-success" %>
+					</ul>
+					<%= link_to "EDIT", edit_event_path(event),class: "btn btn-primary" %>
+					<%= link_to "VIEW", event_path(event),class: "btn btn-success" %>
 			
+				</div>
+			<% end %>
 		</div>
-		<% end %>
-	
+				
 	</div>
+</div>
+	
+	
 
 
 
